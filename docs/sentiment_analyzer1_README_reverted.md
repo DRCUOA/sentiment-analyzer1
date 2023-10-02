@@ -129,6 +129,7 @@ The project follows a clear directory structure aimed at being intuitive and mai
 |                     |                  |                   | 📄 index.handlebars  |
 |                     |                  | 📁 controllers    |                     |
 |                     |                  |                   | 📄 sentimentController.js |
+|                     |                  | 📄 index.js       |                     |
 |                     | 📁 test           |                   |                     |
 |                     |                  | 📁 unit           | 📄 ...              |
 |                     |                  | 📁 integration    | 📄 ...              |
@@ -141,7 +142,7 @@ The project follows a clear directory structure aimed at being intuitive and mai
 |                     | 📄 .gitignore     |                   |                     |
 |                     | 📄 package.json   |                   |                     |
 |                     | 📄 README.md      |                   |                     |
-
+                                |
 
 ### Directories, explanations of intended purpose:
 
@@ -169,3 +170,51 @@ The project adheres to the Model-View-Controller (MVC) design pattern:
 - **Model**: Encapsulates the data logic (located in `models/`).
 - **View**: Holds the templates for UI rendering (located in `views/`).
 - **Controller**: Manages data flow (located in `controllers/`).
+
+1. **Relevance of MVC**:
+   - MVC continues to be a significant design pattern due to its structured approach, promoting a separation of concerns which organizes code into three interconnected components: Model, View, and Controller. This pattern is particularly beneficial in team environments and projects where a clear separation between data, presentation, and actions on data is necessary. However, alternative patterns like MVVM and MVI have emerged to address some of MVC's limitations.
+
+2. **Criticisms of MVC**:
+   - Critics argue that MVC can introduce complexity, pose scalability issues, and sometimes performance overheads, especially in simpler or high-performance-required projects. The rigidity of MVC can also potentially stifle innovative problem-solving approaches. Furthermore, while MVC aids in organizing code within an application, it may not align well with modern development trends like microservices, serverless computing, or reactive programming.
+
+3. **MVC in Microservices Context**:
+   - Transitioning to microservices has been a trend to create scalable, maintainable, and resilient systems. It's possible to implement microservices within an MVC framework, with each microservice following the MVC pattern internally. However, microservices allow for more flexibility at the system level, independent scaling of services, and a polyglot technology stack, contrasting with the monolithic deployment nature of traditional MVC architectures.
+
+
+In this project, we have an outline for a structured approach adhering to the MVC design pattern to build a text classifier using vanilla JavaScript. 
+
+The objective is to keep abstractions to a minimum, to allow for core learning on basic principles, namely the Naive Bayes algorithm for sentiment analysis. The project structure is based on separating different concerns into distinct directories and following the MVC pattern.
+
+To consider building like a micro-service but using the MVC pattern, it's about achieving a level of modularity, scalability, and maintainability similar to what microservices architecture offers. Here are some insights:
+
+1. **Modular Design**:
+   - Keep the design modular. Each functional area, such as the algorithmic part, data handling, or NLP services, could be developed as semi-independent modules within the MVC framework. This modular approach will mimic the independence of microservices.
+
+2. **Stateless Controllers**:
+   - Ensure that your controllers are stateless, much like microservices. This will help in handling requests in an isolated manner, improving scalability and maintainability.
+
+3. **API-first Approach**:
+   - Develop an API for the interactions between different parts of your application. This way, you create a clear contract between different modules, similar to how microservices interact.
+
+4. **Independent Deployment**:
+   - Although it might not be possible to deploy individual MVC components independently like microservices, strive for a level of independence in deployment. For example, ensure that changes to one module won’t necessitate changes to other modules.
+
+5. **Centralized Configuration**:
+   - Employ centralized configuration management to ease the process of changing configurations across different modules, akin to a microservices environment.
+
+6. **Scalable Data Management**:
+   - Your data management should be scalable. Consider employing strategies that would allow for the easy scaling of your data layer, similar to how microservices can independently scale.
+
+7. **Monitoring and Logging**:
+   - Implement robust monitoring and logging across all modules, ensuring traceability and observability, which are crucial in a microservices architecture.
+
+8. **Automated Testing and CI/CD**:
+   - Adopt a robust strategy for automated testing and continuous integration/continuous deployment (CI/CD) to ensure that each module works as expected independently and within the whole system.
+
+9. **Documentation**:
+   - Maintain comprehensive documentation for each module and the system as a whole, ensuring that developers can understand the functionality and interactions of each part of the system.
+
+10. **Learning and Evolution**:
+    - As this project serves as a learning platform, encourage the understanding and discussion of microservices principles among developers, and explore how these principles can be applied within an MVC framework.
+
+By applying these insights and keeping the microservices principles of modularity, scalability, and maintainability in mind, you can architect your MVC-based project in a way that approximates the benefits of a microservices architecture, while adhering to the defined MVC pattern and the learning objectives of the project.
