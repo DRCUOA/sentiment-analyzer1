@@ -3,7 +3,7 @@
 
 ## Overview
 
-This project aims to serve as a learning platform for building a text classifier from the ground up using a Naive Bayes algorithm. Developed in vanilla JavaScript, it specializes in sentiment analysis among other natural language processing (NLP) tasks.
+This project aims to serve as a learning platform for building a text classifier from the ground up using a Naive Bayes algorithm. Developed in vanilla JavaScript, it specializes in sentiment analysis among other natural language processing (NLP) tasks. This is for the purpose of providing an application protocal interface (API) to act as a service to other applications that need text to classified into given categories.
 
 ## Why Vanilla JavaScript?
 
@@ -111,7 +111,7 @@ The project follows a clear directory structure aimed at being intuitive and mai
 
 | Root Directory      | Application Core | Functional Area   | Specific Files      |
 |---------------------|------------------|-------------------|---------------------|
-| 📁 sentiment-analyzer1 |                  |                   |                     |
+| 📁 sentiment-analyzer1 |                |                   |                     |
 |                     | 📁 src            |                   |                     |
 |                     |                  | 📁 algorithms      |                     |
 |                     |                  |                   | 📄 naiveBayes.js     |
@@ -169,3 +169,157 @@ The project adheres to the Model-View-Controller (MVC) design pattern:
 - **Model**: Encapsulates the data logic (located in `models/`).
 - **View**: Holds the templates for UI rendering (located in `views/`).
 - **Controller**: Manages data flow (located in `controllers/`).
+
+
+## Wireframe
+
+### User features list
+
+1. Register a new account to be issued an api-key to use the service
+2. Set-up new classification service
+    1.  Add test data
+    2.  Add training data
+    3.  Configure 
+
+3. Use existing classification services by sending strings and receiving the string and it's classification back
+
+4. Edit existing services
+    1.  Add test data
+    2.  Add training data
+    3.  Configure 
+
+### Service Example
+
+Analyse a provided string for best fit to a single category.  
+
+Example data set for this service : 
+
+Sample category-list : 
+``` json
+[
+    {
+        "category_description": "Monthly car payments",
+        "category_frequency_id": 2,
+        "category_group_id": 4,
+        "category_id": "1",
+        "category_keywords": "mtf, 00212368735, Mtf Payment",
+        "category_name": "Car Lease",
+        "category_type_id": 2
+    },
+    {
+        "category_description": "Monthly auto insurance premiums",
+        "category_frequency_id": 2,
+        "category_group_id": 4,
+        "category_id": "2",
+        "category_keywords": "Cove",
+        "category_name": "Car insurance",
+        "category_type_id": 2
+    },
+    {
+        "category_description": "Monthly expenses for petrol",
+        "category_frequency_id": 5,
+        "category_group_id": 4,
+        "category_id": "3",
+        "category_keywords": "Gull",
+        "category_name": "Petrol",
+        "category_type_id": 2
+    },
+    {
+        "category_description": "Irregular expense for car maintenance",
+        "category_frequency_id": 5,
+        "category_group_id": 4,
+        "category_id": "4",
+        "category_keywords": "",
+        "category_name": "Car Servicing",
+        "category_type_id": 2
+    },
+    {
+        "category_description": "Monthly expenses for public transportation",
+        "category_frequency_id": 2,
+        "category_group_id": 4,
+        "category_id": "5",
+        "category_keywords": "At Hop",
+        "category_name": "Public Transport",
+        "category_type_id": 2
+    },
+    {
+        "category_description": "Monthly insurance premiums",
+        "category_frequency_id": 2,
+        "category_group_id": 5,
+        "category_id": "6",
+        "category_keywords": "Southern Cross, AIA, Aianz",
+        "category_name": "Health and Life Insurance",
+        "category_type_id": 2
+    },
+    {
+        "category_description": "Irregular out-of-pocket costs",
+        "category_frequency_id": 5,
+        "category_group_id": 7,
+        "category_id": "7",
+        "category_keywords": "Snapfish, Mister Minit, Cafe, 094209",
+        "category_name": "Out-of-pocket expenses",
+        "category_type_id": 1
+    },
+    {
+        "category_description": "Monthly expenses for prescriptions",
+        "category_frequency_id": 2,
+        "category_group_id": 5,
+        "category_id": "8",
+        "category_keywords": "Unichem, Auckland Surgical As, Northcross Pharmacy, Chemist, Waitemata Endoscopy, Ella Smits, The Heart Group, Molemap, Mr Booth, Micaela Goldsmith, Milford Nutritional Pharmacy,  Milford Nutritional, Takapuna Health, Dodson Medical, Sp Bnmulti, Cw Albany, Cw Milford, Milford Nutritional, Jc Med Expen",
+        "category_name": "Medical Expenses",
+        "category_type_id": 2
+    },
+    {
+        "category_description": "Mobile phone bill",
+        "category_frequency_id": 2,
+        "category_group_id": 2,
+        "category_id": "9",
+        "category_keywords": "One NZ, 401969784",
+        "category_name": "Mobile Phone",
+        "category_type_id": 2
+    },
+    {
+        "category_description": "Monthly contributions to investment accounts",
+        "category_frequency_id": 2,
+        "category_group_id": 6,
+        "category_id": "10",
+        "category_keywords": "Holla, Animates, Nvc",
+        "category_name": "Pet Expenses",
+        "category_type_id": 2
+    },
+    {
+        "category_description": "Monthly deposits to basic savings accounts",
+        "category_frequency_id": 2,
+        "category_group_id": 6,
+        "category_id": "11",
+        "category_keywords": null,
+        "category_name": "Long Term Savings",
+        "category_type_id": 1
+    }]
+```
+Note: 
+- label = assigned category
+- text = string input
+
+``` javascript
+let train = [
+    {text: 'Gully Funny Bob', label: 'Petrol'},
+    {text: 'Cw Albany              Albany        Nz ', label: 'Medical Expenses'},
+    {text: 'Milford Nutritional    Milford       Nz ', label: 'Medical Expenses'},
+    {text: 'The Warehouse 201      Milford       Nz ', label: 'Clothing'},
+    {text: 'Chemist Warehouse Nz O Auckland      Nz ', label: 'Medical Expenses'},
+    {text: 'Briscoes Albany        Albany        Nz ', label: 'Homewares and Maintenance'}
+];
+
+let test = [
+    {text: 'nan', label: 'Unknown'},
+    {text: 'New World Long Bay     Auckland      Nz ', label: 'Groceries'},
+    {text: 'Fish Monger', label: 'Unknown'},
+    {text: 'Mighty Ape Limited     Millwater     Nz ', label: 'Homewares and Maintenance'},
+    {text: 'Mitre 10 Albany        Auckland      Nz ', label: 'Homewares and Maintenance'}
+];
+```
+
+
+
+
