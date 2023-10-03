@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Learning exercise on building a simple text classifier from scratch using a Naive Bayes classifier algorithm to detect and learn sentiment in text with vanilla JavaScript",
   "main": "app.js",
+  "type": "module",
   "scripts": {
     "log:routes": "NODE_ENV=development DEBUG=debug:r* nodemon app.js",
     "log:controllers": "NODE_ENV=development DEBUG=debug:c* nodemon app.js",
@@ -48,6 +49,7 @@
     "jsonwebtoken": "^9.0.0",
     "knex": "^2.5.1",
     "luxon": "^3.3.0",
+    "moment": "^2.29.4",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
     "nodemailer": "^6.9.1",

@@ -5,6 +5,7 @@
 
 This project aims to serve as a learning platform for building a text classifier from the ground up using a Naive Bayes algorithm. Developed in vanilla JavaScript, it specializes in sentiment analysis among other natural language processing (NLP) tasks. This is for the purpose of providing an application protocal interface (API) to act as a service to other applications that need text to classified into given categories.
 
+
 ## Why Vanilla JavaScript?
 
 The application is built using vanilla JavaScript to minimize abstraction layers, thereby aiding developers in understanding the core logic and algorithms.
@@ -132,12 +133,14 @@ The project follows a clear directory structure aimed at being intuitive and mai
 |                     | 📁 test           |                   |                     |
 |                     |                  | 📁 unit           | 📄 ...              |
 |                     |                  | 📁 integration    | 📄 ...              |
+|                     |                  | 📁 endtoend    | 📄 ...              |
 |                     | 📁 docs           | 📄 ...            |                     |
+|                     |                   | 📁 static_page_testing           | 📄 ...            |                     
 |                     | 📁 node_modules   |                   |                     |
 |                     | 📁 public         |                   |                     |
 |                     |                  | 📁 css            | 📄 ...              |
-|                     |                  | 📁 js             | 📄 ...              |
-|                     |                  | 📄 index.html     |                     |
+|                     |                  | 📁 client-scripts | 📄 ...              |
+|                     |                  | 📁 ui-assets      | 📄 ...                      |
 |                     | 📄 .gitignore     |                   |                     |
 |                     | 📄 package.json   |                   |                     |
 |                     | 📄 README.md      |                   |                     |
@@ -321,5 +324,88 @@ let test = [
 ```
 
 
+
+
+# Example Implementation
+## Naive Bayes Classifier for Bank Transactions in Vanilla JavaScript
+
+### Introduction
+
+This project aims to implement a Naive Bayes classifier in Vanilla JavaScript for categorizing bank transactions. The classifier uses the Bayes' Theorem and assumes that all tokens in a transaction string are independent of each other.
+
+### Steps to Follow
+
+#### Step 1: Data Collection and Preprocessing
+
+##### 1. Collect Sample Data
+Create an array of sample transactions and their associated categories.
+
+```javascript
+const sampleData = [
+  { transaction: "grocery store food", category: "Shopping" },
+  { transaction: "salary", category: "Income" },
+  // ... more samples
+];
+```
+
+##### 2. Tokenize
+Split the transaction strings into tokens (words or other meaningful units).
+
+##### 3. Sanitize
+Remove any irrelevant characters and convert all tokens to lowercase.
+
+```javascript
+const tokenize = (str) => str.toLowerCase().split(' ');
+```
+
+#### Step 2: Training the Model
+
+##### 1. Calculate Prior Probabilities
+For each category, calculate the prior probability \( P(\text{Category}) \).
+
+##### 2. Calculate Token Probabilities
+For each token, calculate the conditional probability \( P(\text{Token} | \text{Category}) \) for each category.
+
+```javascript
+// Initialize variables to hold your calculations
+let categoryProbabilities = {};
+let tokenProbabilities = {};
+// Your training function will populate these
+```
+
+#### Step 3: Making Predictions
+
+##### 1. Tokenize Input
+Tokenize the new transaction string.
+
+##### 2. Calculate Probabilities
+For each category, calculate \( P(\text{Category} | \text{Transaction}) \) using Bayes' Theorem.
+
+##### 3. Select Best Fit
+Choose the category with the highest probability.
+
+```javascript
+const predictCategory = (transaction) => {
+  // Tokenize and sanitize the input
+  const tokens = tokenize(transaction);
+  // Perform prediction using Bayes' Theorem
+  // You will be using categoryProbabilities and tokenProbabilities here
+  // Return the category with the highest probability
+};
+```
+
+#### Step 4: Evaluating the Model
+
+##### 1. Confusion Matrix
+Create a simple confusion matrix to evaluate the performance of your classifier.
+
+##### 2. Tune
+Adjust your model based on the evaluation.
+
+### Constructive Points
+
+1. **Variable Naming**: Given dyslexia, take extra care in naming your variables clearly. Maybe even add comments to elaborate what each does.
+2. **Math Challenges**: If you're not great at math, the probability calculations could be tricky. Double-check your math, and maybe run it by a calculator or a friend proficient in math.
+3. **Debugging**: Start with a very small dataset and manually calculate probabilities to ensure your code is working as expected.
 
 
