@@ -1,0 +1,33 @@
+<!-- index view -->
+<section id="index-container">
+  <section class="main">
+
+  <div class="btn-container">
+    <img src="/ui-assets/logo-for-dark-backgrounds.webp" alt="logo"></img>
+    <h3>Welcome</h3>
+    <button id="register-button">Register</button>
+    <button id="sign-in-button">Sign In</button>
+    <h6 id="reset-pwd-btn">Trouble Logging In?</h6>
+  </div>
+</section>
+
+{{!-- Modals --}}
+<!-- Modal HTML for the register form -->
+<div id="register-modal" class="modal">
+  <div class="modal-content">
+    {{> new-account}}
+  </div>
+</div>
+<!-- Modal HTML for the sign in form -->
+<div id="sign-in-modal" class="modal">
+  <div class="modal-content">
+    {{> login}}
+  </div>
+</div>
+<!-- modal to reset password -->
+<div id="password-reset-form" class="modal">
+  <div class="modal-content">
+    {{> password-reset-form}}
+  </div>
+</div>
+</section>

@@ -323,9 +323,6 @@ let test = [
 ];
 ```
 
-
-
-
 # Example Implementation
 ## Naive Bayes Classifier for Bank Transactions in Vanilla JavaScript
 

@@ -1,16 +1,16 @@
 :root {
   /* Color Palette */
-  --primary-color: #354765;
-  --secondary-color: #f4cd99;
+  --primary-color: #000;
+  --secondary-color: #fff;
   --tertiary-color: #caa470;
-  --background-color-ultra-light: #7583a2;
-  --background-color-light: #617090;
-  --background-color-dark: #1a1563;
-  --background-color-ultra-dark: #120e50;
+  --background-color-ultra-light: #fff;
+  --background-color-light: #454545;
+  --background-color-dark: #000000;
+  --background-color-ultra-dark: #000000;
   --money-up-color: #78c800;
   --money-down-color:rgba(255, 0, 0, 1);
 
-  --text-color: rgb(162, 162, 162);
+  --text-color: rgb(206, 206, 206);
   --highlight-text-color: #fd1b1b;
   --link-color: #929292;
 
@@ -20,20 +20,20 @@
   /* Shadows */
   --base-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   --lg-box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
-  --offset-base-box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.8);
-  --offset-lg-box-shadow: 0 10px 20px 0 rgba(255, 255, 255, 0.8);
+  --offset-base-box-shadow: 0 4px 8px 0 rgba(237, 237, 237, 0.8);
+  --offset-lg-box-shadow: 0 10px 20px 0 rgba(237, 237, 237, 0.8);
 
   /* Neumorphism Shades */
-  --inner-shadow: #5d6880;
-  --outer-shadow: #0b0832;
+  --inner-shadow: #b6b4cf;
+  --outer-shadow: #000000;
 
   /* Fonts */
   --primary-font: Arial, sans-serif;
   --secondary-font: Arial, sans-serif;
 
   /* Text size */
-  --sm-text-size: 12px;
-  --base-text-size: 16px;
+  --sm-text-size: 16px;
+  --base-text-size: 20px;
   --mid-text-size: 24px;
   --large-text-size: 36px;
   --vlarge-text-size: 48px;
@@ -63,6 +63,7 @@ h2,
 h3,
 h4,
 h5,
+h6,
 p {
   position: relative;
   text-align: center;
@@ -94,6 +95,12 @@ h4 {
 
 h5 {
   font-size: var(--base-text-size);
+  margin: 0px;
+  padding: 0px;
+}
+
+h6 {
+  font-size: var(--sm-text-size);
 }
 
 p {
@@ -212,14 +219,16 @@ p {
 .hero-actions-container, .balance-container {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto;
   grid-template-areas:
-    "title title title title"
-    "action1 action1 action2 action2"
-    "action3 action3 action4 action4"
-    "action5 action5 action6 action6"
-    "action7 action7 action7 action7";
+    "title title"
+    "action1 action1"
+    "action2 action2"
+    "action3 action3"
+    "action4 action4"
+    "action5 action5"
+    "action6 action6";
 }
 
 .balance-as-currency {
@@ -233,7 +242,6 @@ p {
   flex-direction: column;
   margin: 0px;
   padding: 0px;
-  font-size: var(--hero-text);
   text-align: center;
   color: var(--text-color);
   height: fit-content;
@@ -294,9 +302,9 @@ p {
 
 .action-container>p {
   font-size: var(--base-text-size);
-  margin: 10px;
+  margin: 15px;
   color: var(--text-color);
-  font-weight: 400;
+  font-weight: 900;
   text-align: center;
   box-shadow: none;
   color: var(--text-color);
@@ -327,6 +335,14 @@ p {
   border-radius: var(--xxl-radius);
   color: var(--secondary-color);
   cursor: pointer;
+}
+
+.hero-ctas > 
+h5,
+h6, 
+p {
+  margin: 0px;
+  padding: 0px;
 }
 
 #hero-intro {
@@ -1234,7 +1250,7 @@ body {
   border-radius: 25px;
   background-color: var(--background-color-dark);
   color: var(--text-color);
-  box-shadow: inset 4px 4px 10px var(--inner-shadow), inset -4px -4px 10px var(--outer-shadow); 
+  box-shadow: inset 1px 1px 2px var(--inner-shadow), inset -1px -1px 2px var(--outer-shadow); 
   margin-top: 4rem;
 }
 

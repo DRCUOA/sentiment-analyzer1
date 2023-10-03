@@ -8,7 +8,7 @@
     "log:routes": "NODE_ENV=development DEBUG=debug:r* nodemon app.js",
     "log:controllers": "NODE_ENV=development DEBUG=debug:c* nodemon app.js",
     "log:models": "NODE_ENV=development DEBUG=debug:d* nodemon app.js",
-    "log:all": "NODE_ENV=development DEBUG=debug:* nodemon app.js",
+    "log:all": "DEBUG=* nodemon app.js",
     "runOnWin": "set NODE_ENV=development && set DEBUG=* && nodemon app.js",
     "test": "jest",
     "test:unit": "jest --testPathPattern=unit",

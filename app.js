@@ -105,7 +105,7 @@ app.use(toaster);
 app.use(addUserToLocals);
 
 // Setup index route
-app.get('/', async (req, res) => {
+app.get('/', verifyAuthenticated, async (req, res) => {
   const dbInUse = (await dbConfig).config.filename;
   console.log(`Using database: ${dbInUse}`);
   res.render('pages/homepage', { layout: 'hero', dbinuse: dbInUse });

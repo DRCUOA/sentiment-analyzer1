@@ -1,4 +1,4 @@
-export const trainingDataFrame1_dbExtract03102023 = [
+export const trainingDataFrame1 = [
   { "feature": "Mtf Mtf Payment 31504079 00215326894", "category_name": "Car Lease" },
   { "feature": "Mtf Mtf Payment 31504079 00214356504", "category_name": "Car Lease" },
   { "feature": "Mtf Mtf Payment 31504079 00213335044", "category_name": "Car Lease" },
@@ -901,5 +901,3 @@ export const trainingDataFrame1_dbExtract03102023 = [
   { "feature": "At Parking             Auckland      Nz", "category_name": "Work expense - non-recoverable" },
   { "feature": "At Parking             Auckland      Nz", "category_name": "Work expense - non-recoverable" },
   { "feature": "At Parking             Auckland      Nz", "category_name": "Work expense - non-recoverable" }]
-
-  

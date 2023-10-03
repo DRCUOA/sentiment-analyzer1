@@ -31,8 +31,9 @@ export async function verifyAuthenticated(req, res, next) {
     devAuthCtrl('user is authenticated');
     next();
   } else {
+    console.log('here is found but no futher perhaps')
     devAuthCtrl('user is not authenticated');
-    res.render('pages/index');
+  res.render('pages/index', { layout: 'main'});
   }
 };
 

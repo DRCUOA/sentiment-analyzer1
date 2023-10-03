@@ -1,0 +1,27 @@
+<!-- new-account html form-->
+<form id="newaccount" method="post" action="/new-account" style="--nRows:5">
+  <span class="close" id="reg-close">&times;</span>
+  <img src="/ui-assets/api-docs-imgEDIT.svg"
+        alt="logo" style="height: 40px; width: 40px; margin: -9px -10px -1px 0px;">
+  <br>
+  <label for="email">Email:</label>
+  <input type="email" name="email" id="email" required>
+  <br>
+  <label for="password">Password:</span></label>
+  <input type="password" name="password" autocomplete="new-password" id="txtPassword" required>
+  <br>
+  <label for="password-confirm">Confirm Password:</label>
+  <input type="password" name="password-confirm" id="pwd-confirm" required>
+  <br>
+  <label for="username">Pick a username:</label>
+  <input type="text" name="username" id="username" required>
+  <br>
+  <label for="realname">Your real name</label>
+  <input type="text" name="realname" required>
+  <br>
+  <span id="email-status" style="font-size: var(--sm-text-size); color: red;"></span>
+  <span id="pwd-status" style="font-size: var(--sm-text-size); color: red;"></span>
+  <span id="pwd-confirm-status" style="font-size: var(--sm-text-size); color: red;"></span>
+  <span id="username-status" style="font-size: var(--sm-text-size); color: red;"></span>
+  <button type="submit" id="create-account">Create Account</button>
+</form>
