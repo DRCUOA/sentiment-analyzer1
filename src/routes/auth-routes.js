@@ -1,9 +1,9 @@
 import { v4 as uuid } from 'uuid';
 import bcrypt from 'bcrypt';
 import express from 'express';
-import { setToastMessage } from '../services/toaster.js';
+import { toaster } from '../services/toaster.js';
 import debug from 'debug';
-import * as userDao from '../models/dao/user-dao.js';
+import * as userDao from '../models/user/user-dao.js';
 import crypto from 'crypto';
 
 const router = express.Router();
@@ -89,7 +89,7 @@ router.post('/login', async (req, res) => {
       } else {
         devAuthRLog(`User ${user.username}`)
         res.locals.user = null;
-        setToastMessage = "Authentication Failed!"
+        toaster = "Authentication Failed!"
         res.redirect("/");
       }
 
@@ -97,7 +97,7 @@ router.post('/login', async (req, res) => {
   } catch (err) {
     devAuthRLog(`User Not Found`)
     res.locals.user = null;
-    setToastMessage = "Authentication Failed!"
+    toaster = "Authentication Failed!"
     res.redirect("/");
   }
 });

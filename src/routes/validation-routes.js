@@ -1,6 +1,6 @@
 import express from 'express';
 import debug from 'debug';
-import * as userDao from '../models/users/user-dao.js';
+import * as userDao from '../models/user/user-dao.js';
 
 const router = express.Router();
 

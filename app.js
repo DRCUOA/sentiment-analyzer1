@@ -46,9 +46,9 @@ app.use(bodyParser.json());
 // Setup view engine
 const hbs = exphbs.create({
   defaultLayout: 'main',
-  layoutsDir: 'views/layouts',
+  layoutsDir: 'src/views/layouts',
   extname: '.handlebars',
-  partialsDir: 'views/partials',
+  partialsDir: 'src/views/partials',
   helpers: {
     equals: function (a, b) {
       return a === b;
@@ -73,6 +73,9 @@ const hbs = exphbs.create({
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
+
+// Set a different views directory
+app.set('views', path.join(__dirname, 'src/views'));
 
 // Setup logging for HTTP requests and debug
 const devApp = debug('devLog:app_main');

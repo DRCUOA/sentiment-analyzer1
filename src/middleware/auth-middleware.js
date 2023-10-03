@@ -3,7 +3,7 @@ import debug from 'debug';
 //debug namespace setup
 const devAuthCtrl = debug('devLog:controller_auth');
 // import the dao user model
-import { retrieveUserWithEmail, retrieveUserWithAuthToken } from '../models/dao/user-dao.js';
+import { retrieveUserWithEmail, retrieveUserWithAuthToken } from '../models/user/user-dao.js';
 
 // add user to locals
 export async function addUserToLocals(req, res, next) {

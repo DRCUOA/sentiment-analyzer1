@@ -1,0 +1,62 @@
+<!-- homepage view -->
+
+<div class="hero-container">
+  <div class="hero-ctas">
+    <!-- hero main -->
+    <img src="/ui-assets/apiLogo1.png" alt="logo" id="logo-img" style="height: 200px; width: 200px">
+    <h2 id="hero-title">Classification API Home</h2>
+    <h5>Database: {{dbinuse}}</h5>
+
+    <!-- General Search -->
+    <div class="search-container">
+      <input type="text" id="search-box" placeholder="Search">
+      <img src="/ui-assets/search-icon.png" alt="" id="search-btn">
+    </div>
+
+    <div class="hero-actions-container">
+
+      <div class="action-container" id="action1">
+        
+        <p>Documentation</p>
+      </div>
+
+      <div class="action-container" id="action2">
+        <a href="/app/admin-home"><img src="/ui-assets/setup.png" alt=""></a>
+        <p>Setup Pages</p>
+      </div>
+
+      <div class="action-container" id="action3">
+        <a href="/app/admin-home"><img src="/ui-assets/reports2.png" alt=""></a>
+        <p>View Reports</p>
+      </div>
+
+      <div class="action-container" id="action4">
+        <a href="/account/accounts-summary"><img src="/ui-assets/accounts.png" alt=""></a>
+        <p>View Balances</p>
+      </div>
+
+
+      <div class="action-container" id="action7">
+        <a href="/logout" id="logout"><img src="/ui-assets/logout.png" alt=""></a>
+        <p>logout</p>
+      </div>
+    </div>
+
+    <div class="action-container" id="action8">
+      <button id="factory-reset-btn"><img src="/ui-assets/warning.png" alt="" style="width: 55px; height 55px"></button>
+      <p>Clear All Transactions</p>
+    </div>
+    {{!-- developer logo --}}
+    <div class="action-container" id="action8">
+      <img src="/ui-assets/logo-nobackground-1000.svg" alt="logo" id="logo-img" style="height: 80px; width: 80px">
+
+    </div>
+    {{#if toastMessage}}
+    <div class="toast-container">
+      <div class="toast-message">
+        <p>{{toastMessage}}</p>
+      </div>
+      {{/if}}
+    </div>
+  </div>
+</div>

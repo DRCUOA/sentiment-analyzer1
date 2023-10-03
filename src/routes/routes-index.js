@@ -16,12 +16,5 @@ import appRoutes from './app-routes.js';
 router.use("/", authRouting);
 router.use("/validation", clientInputValidation);
 router.use('/app', appRoutes);
-router.use('/trans', transactionRoutes);
-router.use('/category', categoryRoutes);
-router.use('/category-group', categoryGroupRoutes);
-router.use('/category-freq', categoryFreqRoutes);
-router.use('/reports', reportRoutes);
-router.use('/account', accountsRoutes);
-router.use('/recon', reconciliationRoutes);
 
 export default router;
