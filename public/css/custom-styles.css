@@ -10,8 +10,7 @@
   --money-up-color: #78c800;
   --money-down-color:rgba(255, 0, 0, 1);
 
-
-  --text-color: #f7e1b8;
+  --text-color: rgb(162, 162, 162);
   --highlight-text-color: #fd1b1b;
   --link-color: #929292;
 
@@ -291,6 +290,16 @@ p {
   object-fit: cover;
   border-radius: var(--base-radius);
   box-shadow: 4px 4px 10px var(--inner-shadow), -4px -4px 10px var(--outer-shadow);
+}
+
+.action-container>p {
+  font-size: var(--base-text-size);
+  margin: 10px;
+  color: var(--text-color);
+  font-weight: 400;
+  text-align: center;
+  box-shadow: none;
+  color: var(--text-color);
 }
 
 #hero-text-items {
