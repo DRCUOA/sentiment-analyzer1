@@ -131,5 +131,5 @@ dist
 
 # flat txt files of any type
 *.txt
-
+*.csv
 
