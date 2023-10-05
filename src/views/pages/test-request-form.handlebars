@@ -3,6 +3,8 @@
 <form id="enter-strings-form" method="post" action="/app/tokenize" enctype="multipart/form-data">
   <img src="/ui-assets/apiLogo1.png" alt="logo">
   <br>
+  <label for="model_name" id="model_name">Name the model to train</label>
+  <input type="text" name="model_name" required>
   <label for="file">Choose a file to update</label>
   <input type="file" name="file" accept=".txt, .pdf, .doc" required>
   <label for="description">Enter a String manaully (optional)</label>

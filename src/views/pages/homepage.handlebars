@@ -14,8 +14,10 @@
       <input type="text" id="search-box" placeholder="Search">
       <img src="/ui-assets/search-icon.png" alt="" id="search-btn">
     </div>
+  {{#if message}}
+    <div class="hero-actions-container">{{message}}</div>
+  {{/if}}
 
-    <div class="hero-actions-container">
 
       <div class="action-container" id="action1">
         <a href="#"><img src="/ui-assets/api-docs-imgEDIT.svg" alt="img"></a>
@@ -28,13 +30,13 @@
       </div>
 
       <div class="action-container" id="action3">
-        <a href="#"><img src="/ui-assets/database-docs-img.png" alt="img"></a>
-        <p>Database Documentation</p>
+        <a href="/app/selectModel"><img src="/ui-assets/database-docs-img.png" alt="img"></a>
+        <p>Select Model for Predictions</p>
       </div>
 
       <div class="action-container" id="action4">
         <a href="/app/test-request"><img src="/ui-assets/service-menuEDIT.svg" alt="img"></a>
-        <p>Full Service Menu</p>
+        <p>Train Model</p>
       </div>
 
       <div class="action-container" id="action5">

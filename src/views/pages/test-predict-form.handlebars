@@ -1,0 +1,20 @@
+<!-- predictions request form -->
+<div class=".uploadfile">
+<form id="enter-strings-form" method="post" action="/app/make-prediction" enctype="multipart/form-data">
+  <img src="/ui-assets/apiLogo1.png" alt="logo">
+  <br>
+  <label for="model_name" id="model_name">Name the model to train</label>
+   <select name="model_name">
+    {{#each modelNames}}
+      <option value="{{this}}">{{this}}</option>
+    {{/each}}
+  </select>
+  <label for="file">Choose a file with transactions that need categorizing</label>
+  <input type="file" name="file" accept=".txt, .pdf, .doc" required>
+  <label for="description">Enter a transaction manaully (optional)</label>
+  <input type="text" name="description">
+  <button id="update-btn" type="submit">Get Predictions</button>
+  <br>
+</form>
+
+</div>
