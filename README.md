@@ -165,6 +165,15 @@ The project follows a clear directory structure aimed at being intuitive and mai
 | 📄 package.json     | npm configuration                          |
 | 📄 README.md        | This file                                  |
 
+updates 5/10
+
+src/algorithms/naiveBayesTrain.js: For the training algorithm.
+src/models/naiveBayes/naiveBayesModel.js: To store the trained model.
+src/controllers/naiveBayesController.js: For handling HTTP requests for Naive Bayes.
+src/utils/dataManipulation.js: Optional, for manipulating your training data.
+Update src/routes/app-routes.js to include new routes for Naive Bayes operations.
+
+
 ### MVC Design Pattern
 
 The project adheres to the Model-View-Controller (MVC) design pattern:

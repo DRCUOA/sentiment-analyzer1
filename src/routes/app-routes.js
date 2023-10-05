@@ -5,6 +5,7 @@ import { upload } from "../config/multer-cofig.js";
 import fs from 'fs';
 import { tokenize } from '../utils/tokenizer.js';
 const router = express.Router();
+import csv from 'csv-parser';
 
 // Setup dev environment debug namespace
 const devAppRLog = debug('devLog:app_routing');
@@ -27,38 +28,40 @@ router.post('/tokenize', upload.single('file'), async (req, res) => {
   devAppRLog('post /tokenize-text');
 
   try {
-    //'req.file' contains the uploaded file object
-    const fileContents = fs.readFileSync(req.file.path, 'utf8');
-    // Split the file contents into an array of rows
-    const rows = fileContents.split('\n');
-    // parse first row with field names
-    const fieldNames = rows[0].split(',');
-    // Initialize an array to store the parsed data
-    const dataArray = [];
-    // Start looping from the second row (index 1) to the end
-    for (let i = 1; i < rows.length; i++) {
-      const row = rows[i].split(',');
-      const rowData = {};
-      // Map field names to values for each row
-      for (let j = 0; j < fieldNames.length; j++) {
-        rowData[fieldNames[j]] = row[j];
-      }
-      // Push the row data to the dataArray
-      dataArray.push(rowData);
-    }
-    // Extract the strings to tokenize from dataArray
-    const stringsToTokenize = dataArray.map((data) => {
-      return `${data.features} cateogory::${data.category_name}`;
-    });    
-    // Tokenize the extracted strings
-    const response = stringsToTokenize.map(tokenize);
-    // Send the tokens as response
-    res.send(response);
+    const results = []; // We'll store the parsed CSV rows here
+
+    // Read and parse the CSV
+    fs.createReadStream(req.file.path)
+      .pipe(csv())
+      .on('data', (data) => results.push(data))
+      .on('end', () => {
+        
+        // Sanitize and tokenize the parsed data
+        const sampleData = results.map(row => {
+          const transaction = row.features.toLowerCase();  // sanitization to lowercase
+          const tokens = transaction.split(' ');  // tokenization
+          const category = row.category_name;
+          return { transaction, tokens, category };
+        });
+
+        // Remove the uploaded file
+        fs.unlink(req.file.path, (err) => {
+          if (err) {
+            console.log("Failed to delete the file:", err);
+          } else {
+            console.log("Successfully deleted the uploaded file.");
+          }
+        });
+
+        res.send(sampleData);  // Send the structured data as response
+      });
+
   } catch (err) {
     console.log(err.stack);
     res.send(err.message);
   }
 });
+
 
 
 router.get('/test-request', function (req, res) {
