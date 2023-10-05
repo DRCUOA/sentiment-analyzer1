@@ -89,7 +89,6 @@ router.post('/login', async (req, res) => {
       } else {
         devAuthRLog(`User ${user.username}`)
         res.locals.user = null;
-        toaster = "Authentication Failed!"
         res.redirect("/");
       }
 
@@ -97,7 +96,6 @@ router.post('/login', async (req, res) => {
   } catch (err) {
     devAuthRLog(`User Not Found`)
     res.locals.user = null;
-    toaster = "Authentication Failed!"
     res.redirect("/");
   }
 });

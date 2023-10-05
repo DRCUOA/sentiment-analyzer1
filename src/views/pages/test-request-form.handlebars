@@ -1,12 +1,14 @@
 <!-- test request form -->
-
-<form method="post" action="/app/tokenize">
-  <span class="close" id="close-reset-form">&times;</span>
-  <img src="/ui-assets/apiLogo1.png" alt="logo"
-    style="height: 40px; width: 40px; margin: -9px -10px -1px 0px;">
+<div class=".uploadfile">
+<form id="enter-strings-form" method="post" action="/app/tokenize" enctype="multipart/form-data">
+  <img src="/ui-assets/apiLogo1.png" alt="logo">
   <br>
-  <label for="strings">Enter your registered email:</label>
-  <input type="text" name="strings" required>
-  <button id="reset-btn" type="submit">Tokenize</button>
+  <label for="file">Choose a file to update</label>
+  <input type="file" name="file" accept=".txt, .pdf, .doc" required>
+  <label for="description">Enter a String manaully (optional)</label>
+  <input type="text" name="description">
+  <button id="update-btn" type="submit">Get Tokens</button>
   <br>
 </form>
+
+</div>

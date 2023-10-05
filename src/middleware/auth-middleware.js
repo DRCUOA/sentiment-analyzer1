@@ -32,7 +32,7 @@ export async function verifyAuthenticated(req, res, next) {
     next();
   } else {
     console.log('here is found but no futher perhaps')
-    devAuthCtrl('user is not authenticated');
+    console.log('user is not authenticated');
   res.render('pages/index', { layout: 'main'});
   }
 };
