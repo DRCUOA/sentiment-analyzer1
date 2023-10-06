@@ -138,8 +138,8 @@ router.post('/make-prediction', upload.single('file'), async (req, res) => {
 });
 
 
-router.get('/test-request', function (req, res) {
-  res.render('pages/test-request-form')
+router.get('/trainmodel', function (req, res) {
+  res.render('pages/train-form')
 })
 
 // src/routes/yourRoutesFile.js

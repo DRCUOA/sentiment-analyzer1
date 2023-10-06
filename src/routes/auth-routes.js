@@ -100,8 +100,8 @@ router.post('/login', async (req, res) => {
   }
 });
 
-router.get('/test-page', (req, res) => {
-  res.render('pages/test-page');
+router.get('/train-form', (req, res) => {
+  res.render('pages/train-form');
 }
 );
 

@@ -4,7 +4,7 @@ import { readModelByName } from "../models/naiveBayesDAO.js";
 export const renderModelSelectionPage = async (req, res) => {
   try {
     const modelNames = await getModelNames();
-    res.render('pages/test-predict-form', { modelNames });
+    res.render('pages/predict-form', { modelNames });
   } catch (err) {
     console.error(err);
     res.status(500).send('Internal Server Error');
